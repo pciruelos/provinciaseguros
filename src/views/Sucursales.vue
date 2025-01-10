@@ -17,7 +17,7 @@ const selectedSucursales = [
 onMounted(() => {
   getAllSucursales()
     .then((data) => {
-      provincias.value = data // Store the fetched provinces in the reactive variable
+      provincias.value = data
     })
     .catch((error) => {
       console.error('Error fetching provincias:', error)

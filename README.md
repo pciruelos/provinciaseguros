@@ -1,4 +1,4 @@
-# Documentación del Proyecto ProvinciaSeguros
+# Documentación del Proyecto: ProvinciaSeguros
 
 Este documento describe los pasos para instalar y ejecutar el proyecto ProvinciaSeguros localmente.
 
@@ -16,6 +16,7 @@ Este proyecto utiliza las siguientes tecnologías y dependencias:
 - **Vuetify:** Framework de componentes UI basado en Material Design para Vue.js. Se utiliza para la creación de componentes como carouseles y otros elementos de la interfaz.
 - **Pinia:** Librería de gestión de estado para Vue.js, utilizada en este proyecto para el manejo del estado global de la aplicación, específicamente para la gestión del inicio de sesión.
 - **Axios:** Cliente HTTP basado en promesas para realizar peticiones a APIs externas.
+- **Tailwind CSS:** Framework de CSS de utilidad-primera (utility-first) que permite un desarrollo rápido y flexible de interfaces de usuario.
 - **Vuelidate:** Librería para la validación de formularios en Vue.js, utilizada para validar los datos ingresados durante el registro de usuarios.
 - **@mdi/font:** Conjunto de iconos Material Design Icons.
 
@@ -109,4 +110,4 @@ Una vez instaladas las dependencias, puedes ejecutar la aplicación en modo de d
   yarn dev
   ```
 
-Este comando iniciará el servidor de desarrollo. Luego, puedes abrir [http://localhost:5000/] (o el puerto que se indique en la consola) con tu navegador para ver el resultado.
+Este comando iniciará el servidor de desarrollo. Luego, puedes abrir http://localhost:5000/ (o el puerto que se indique en la consola) con tu navegador para ver el resultado.
