@@ -7,10 +7,10 @@ export const useAuthStore = defineStore('auth', {
   }),
   actions: {
     login(username, password) {
-      // Retrieve users from localStorage
+      // get users from localStorage
       const users = JSON.parse(localStorage.getItem('users')) || []
 
-      // Check if the provided credentials match an existing user
+      // Check credentials
       const user = users.find((user) => user.username === username && user.password === password)
 
       if (user) {
