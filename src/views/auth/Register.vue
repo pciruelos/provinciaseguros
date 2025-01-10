@@ -3,7 +3,7 @@ import useVuelidate from '@vuelidate/core'
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/authStore'
 import { useRouter } from 'vue-router'
-import { registerRules } from '@/validations/registerValidation' // Import the rules
+import { registerRules } from '@/validations/registerValidation'
 
 // Reactive form data
 const form = ref({
@@ -125,6 +125,4 @@ const onSubmit = async () => {
   </div>
 </template>
 
-<style scoped>
-/* Tailwind handles most styling */
-</style>
+<style scoped></style>

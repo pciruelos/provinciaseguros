@@ -3,14 +3,13 @@ import { computed, ref } from 'vue'
 import { useAuthStore } from '@/stores/authStore'
 import { useRouter } from 'vue-router'
 
-// Store and Router
 const authStore = useAuthStore()
 const router = useRouter()
 
-// Reactive menu state
+// localdata
 const isMenuOpen = ref(false)
 
-// Computed property to get the logged-in user's full name
+// Computed
 const fullName = computed(() => {
   if (authStore.isLoggedIn) {
     const user = JSON.parse(localStorage.getItem('users')).find(
@@ -21,40 +20,41 @@ const fullName = computed(() => {
   return ''
 })
 
-// Logout method
+// methods
 const logout = () => {
   authStore.logout()
-  router.push({ name: 'login' }) // Redirect to login page after logout
+  router.push({ name: 'login' })
 }
 
-// Toggle menu visibility
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 </script>
 
 <template>
-  <nav v-if="authStore.isLoggedIn">
-    <div class="flex items-center justify-between px-8 py-4 shadow-md bg-white">
+  <nav>
+    <div class="flex items-center justify-between px-8 py-1 shadow-md bg-white">
       <!-- Logo -->
       <div class="shrink-0">
         <router-link to="/" class="no-underline">
-          <img src="/logo.jpg" alt="Provincia Seguros Logo" class="w-32" />
+          <img src="/logo.jpg" alt="Provincia Seguros Logo" class="w-24" />
         </router-link>
       </div>
 
       <!-- Hamburger Menu for Mobile -->
-      <button class="text-2xl bg-none border-none cursor-pointer md:hidden" @click="toggleMenu">
+      <button
+        class="text-2xl bg-none border-none cursor-pointer md:hidden text-black"
+        @click="toggleMenu"
+      >
         ☰
       </button>
 
-      <!-- Navigation Links -->
       <div
         :class="[
           'flex items-center gap-4 md:gap-8',
-          isMenuOpen ? 'flex-col md:flex-row' : 'hidden md:flex',
+          isMenuOpen ? 'flex-col md:flex-row z-50' : 'hidden md:flex',
         ]"
-        class="absolute md:relative top-16 md:top-auto right-0 md:right-auto bg-white md:bg-transparent w-full md:w-auto px-4 md:px-0 py-4 md:py-0"
+        class="absolute md:relative top-16 md:top-auto right-0 md:right-auto bg-white md:bg-transparent w-full md:w-auto px-4 md:px-0 py-1 md:py-0"
       >
         <router-link to="/" class="text-black no-underline hover:text-blue-600">
           <div>Inicio</div>
@@ -72,7 +72,6 @@ const toggleMenu = () => {
           <div>Nuestras Sedes</div>
         </router-link>
 
-        <!-- User Info -->
         <div class="text-center">
           <h1 class="text-gray-800 text-base flex items-center">
             <i class="fa fa-user mr-1" aria-hidden="true"></i>
@@ -80,7 +79,6 @@ const toggleMenu = () => {
           </h1>
         </div>
 
-        <!-- Logout Button -->
         <button
           @click="logout"
           class="bg-transparent border-none text-black text-base hover:text-blue-600"
@@ -92,6 +90,4 @@ const toggleMenu = () => {
   </nav>
 </template>
 
-<style scoped>
-/* No custom styles required as Tailwind handles the layout. */
-</style>
+<style scoped></style>

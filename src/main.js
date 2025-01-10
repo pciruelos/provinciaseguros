@@ -1,10 +1,18 @@
 import './index.css'
-import '../node_modules/flowbite-vue/dist/index.css'
-import '../node_modules/flowbite/dist/flowbite.css' // Import Flowbite CSS
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { useAuthStore } from '@/stores/authStore'
+
+import { createVuetify } from 'vuetify' // Import Vuetify
+import 'vuetify/styles' // Import Vuetify styles
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+
+const vuetify = createVuetify({
+  components,
+  directives,
+})
 
 import App from './App.vue'
 import router from './router'
@@ -14,13 +22,7 @@ const pinia = createPinia()
 
 app.use(pinia)
 app.use(router)
-
-// Check login status on app initialization
-console.log(
-  'LocalStorage on app start:',
-  localStorage.getItem('isLoggedIn'),
-  localStorage.getItem('username'),
-)
+app.use(vuetify)
 
 const authStore = useAuthStore()
 authStore.checkLoginStatus()

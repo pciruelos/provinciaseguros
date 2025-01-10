@@ -4,7 +4,6 @@ import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 import { getAllSucursales } from '@/services/sucursales/sucursalesService'
 
-// Define a reactive variable to hold the provinces data
 const provincias = ref([])
 const selectedSucursales = [
   'Neuquén',
@@ -15,12 +14,10 @@ const selectedSucursales = [
   'Santa Fe',
 ]
 
-// Fetch the data when the component is mounted
 onMounted(() => {
   getAllSucursales()
     .then((data) => {
       provincias.value = data // Store the fetched provinces in the reactive variable
-      console.log(provincias.value) // Log to verify
     })
     .catch((error) => {
       console.error('Error fetching provincias:', error)
@@ -34,10 +31,8 @@ const filteredSucursales = computed(() => {
 
 <template>
   <div class="flex flex-col min-h-screen bg-cover bg-center text-black">
-    <!-- Navbar Component -->
     <Navbar />
 
-    <!-- Main Content -->
     <main class="flex-grow text-center py-12">
       <h2>Provincias:</h2>
       <ul>
@@ -47,11 +42,6 @@ const filteredSucursales = computed(() => {
       </ul>
     </main>
 
-    <!-- Footer Component -->
     <Footer />
   </div>
 </template>
-
-<style scoped>
-/* No additional styles needed; Tailwind handles the layout and design */
-</style>

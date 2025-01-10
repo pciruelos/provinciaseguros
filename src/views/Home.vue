@@ -8,10 +8,8 @@ import Carousel from '@/components/Carousel.vue'
   <div class="flex flex-col min-h-screen bg-cover bg-center text-white">
     <!-- Navbar Component -->
     <Navbar />
-
     <!-- Carousel Component -->
     <Carousel />
-
     <!-- Main Content -->
     <main class="flex-grow text-center py-12" style="background-image: url('/1.jpg')">
       <h3 class="text-2xl font-light mb-3">COTIZACIÓN ONLINE</h3>
@@ -38,12 +36,8 @@ import Carousel from '@/components/Carousel.vue'
         </div>
       </div>
     </main>
-
-    <!-- Footer Component -->
     <Footer />
   </div>
 </template>
 
-<style scoped>
-/* No additional styles needed; Tailwind handles the layout and design */
-</style>
+<style scoped></style>

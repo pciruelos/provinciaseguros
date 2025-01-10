@@ -5,12 +5,10 @@ const currentYear = new Date().getFullYear()
 <template>
   <footer class="bg-gray-100 border-t border-black text-xs py-6">
     <div class="container mx-auto px-4 md:px-12 text-left space-y-6">
-      <!-- Copyright -->
       <p class="text-gray-700">
         © {{ currentYear }} Provincia Seguros - Todos los derechos reservados
       </p>
 
-      <!-- Legal Section -->
       <div class="text-gray-600 space-y-4 leading-relaxed">
         <p><strong>N° de inscripción en SSN:</strong> 0499</p>
         <p>
@@ -71,6 +69,4 @@ const currentYear = new Date().getFullYear()
   </footer>
 </template>
 
-<style scoped>
-/* Additional styles if needed */
-</style>
+<style scoped></style>

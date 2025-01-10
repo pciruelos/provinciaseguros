@@ -1,7 +1,6 @@
-// src/validations/registerValidation.js
 import { required, email, maxLength, minLength, helpers } from '@vuelidate/validators'
 
-// Define validation rules
+//validation rules
 export const registerRules = {
   firstName: {
     required,

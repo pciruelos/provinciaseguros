@@ -12,10 +12,8 @@ const router = useRouter()
 const onSubmit = (e) => {
   e.preventDefault()
 
-  // Attempt login
   authStore.login(username.value, password.value)
 
-  // Redirect to home if login is successful
   if (authStore.isLoggedIn) {
     router.push({ name: 'home' })
   }
@@ -24,7 +22,6 @@ const onSubmit = (e) => {
 
 <template>
   <div class="flex flex-col min-h-screen">
-    <!-- Login Section -->
     <div class="flex-grow flex items-center justify-center" style="background-image: url('/1.jpg')">
       <div class="login-container w-full max-w-md sm:max-w-lg p-6 bg-gray-200 rounded-xl shadow-md">
         <h4 class="text-center text-lg font-semibold text-gray-700 mb-4">Inicio de Sesión</h4>
@@ -70,12 +67,8 @@ const onSubmit = (e) => {
         </div>
       </div>
     </div>
-
-    <!-- Footer Section -->
     <Footer />
   </div>
 </template>
 
-<style scoped>
-/* Tailwind handles most styling */
-</style>
+<style scoped></style>
