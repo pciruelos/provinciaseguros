@@ -10,15 +10,15 @@ const router = useRouter()
 const isMenuOpen = ref(false)
 
 // Computed
-const fullName = computed(() => {
-  if (authStore.isLoggedIn) {
-    const user = JSON.parse(localStorage.getItem('users')).find(
-      (u) => u.username === authStore.username,
-    )
-    return user ? `${user.firstName} ${user.lastName}` : 'Usuario'
-  }
-  return ''
-})
+// const fullName = computed(() => {
+//   if (authStore.isLoggedIn) {
+//     const user = JSON.parse(localStorage.getItem('users')).find(
+//       (u) => u.username === authStore.username,
+//     )
+//     return user ? `${user.firstName} ${user.lastName}` : 'Usuario'
+//   }
+//   return ''
+// })
 
 // methods
 const logout = () => {
@@ -75,7 +75,7 @@ const toggleMenu = () => {
         <div class="text-center">
           <h1 class="text-gray-800 text-base flex items-center">
             <i class="fa fa-user mr-1" aria-hidden="true"></i>
-            <span class="font-bold text-blue-800 text-lg">{{ fullName }}</span>
+            <span class="font-bold text-blue-800 text-lg">{{ authStore.fullName }}</span>
           </h1>
         </div>
 

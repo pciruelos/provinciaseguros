@@ -1,10 +1,16 @@
 <script setup>
-import { onMounted, ref, computed } from 'vue'
+import { ref, onMounted, defineAsyncComponent } from 'vue'
+import { getAllSucursales } from '@/services/sucursales/sucursalesService'
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
-import { getAllSucursales } from '@/services/sucursales/sucursalesService'
+
+//
+const SucursalesList = defineAsyncComponent(
+  () => import('@/components/Sucursales/SucursalesList.vue'),
+)
 
 const provincias = ref([])
+
 const selectedSucursales = [
   'Neuquén',
   'Buenos Aires',
@@ -23,10 +29,6 @@ onMounted(() => {
       console.error('Error fetching provincias:', error)
     })
 })
-
-const filteredSucursales = computed(() => {
-  return provincias.value.filter((sucursal) => selectedSucursales.includes(sucursal.nombre))
-})
 </script>
 
 <template>
@@ -34,12 +36,14 @@ const filteredSucursales = computed(() => {
     <Navbar />
 
     <main class="flex-grow text-center py-12">
-      <h2>Provincias:</h2>
-      <ul>
-        <li v-for="(sucursal, index) in filteredSucursales" :key="index">
-          {{ sucursal.nombre }}
-        </li>
-      </ul>
+      <Suspense>
+        <template #default>
+          <SucursalesList :sucursales="provincias" :selected="selectedSucursales" />
+        </template>
+        <template #fallback>
+          <p>Cargando provincias...</p>
+        </template>
+      </Suspense>
     </main>
 
     <Footer />

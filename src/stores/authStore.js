@@ -5,6 +5,17 @@ export const useAuthStore = defineStore('auth', {
     isLoggedIn: false,
     username: '',
   }),
+  getters: {
+    fullName: (state) => {
+      if (state.isLoggedIn) {
+        const user = JSON.parse(localStorage.getItem('users')).find(
+          (u) => u.username === state.username,
+        )
+        return user ? `${user.firstName} ${user.lastName}` : 'Usuario Desconocido'
+      }
+      return ''
+    },
+  },
   actions: {
     login(username, password) {
       // get users from localStorage
